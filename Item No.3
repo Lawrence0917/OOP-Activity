@@ -11,32 +11,8 @@ class Vehicle {
         $this->mileage = $mileage;
     }
 
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getSpeed() {
-        return $this->speed;
-    }
-
-    public function getMileage() {
-        return $this->mileage;
-    }
-
-    public function setName($name) {
-        $this->name = $name;
-    }
-
-    public function setSpeed($speed) {
-        $this->speed = $speed;
-    }
-
-    public function setMileage($mileage) {
-        $this->mileage = $mileage;
-    }
-
     public function displayInfo() {
-        echo "Vehicle Name: {$this->name}\n";
+        echo "Vehicle: {$this->name}\n";
         echo "Speed: {$this->speed} km/h\n";
         echo "Mileage: {$this->mileage} km/l\n";
     }
