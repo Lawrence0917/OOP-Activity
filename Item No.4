@@ -1,0 +1,50 @@
+<?php
+
+class Vehicle {
+    private $name;
+    private $speed;
+    private $mileage;
+
+    public function __construct($name, $speed, $mileage) {
+        $this->name = $name;
+        $this->speed = $speed;
+        $this->mileage = $mileage;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getSpeed() {
+        return $this->speed;
+    }
+
+    public function getMileage() {
+        return $this->mileage;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function setSpeed($speed) {
+        $this->speed = $speed;
+    }
+
+    public function setMileage($mileage) {
+        $this->mileage = $mileage;
+    }
+}
+
+class Bus extends Vehicle {
+    public function seating_capacity($capacity = 50) {
+        return "The seating capacity of this bus is {$capacity} passengers.";
+    }
+}
+
+$school_bus = new Bus("School Volvo", 180, 12);
+echo $school_bus->getName() . "\n";
+echo $school_bus->seating_capacity() . "\n";
+echo $school_bus->seating_capacity(45) . "\n";
+
+?>
