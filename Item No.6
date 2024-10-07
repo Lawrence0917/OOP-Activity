@@ -1,0 +1,51 @@
+<?php
+
+class Vehicle {
+    private $name;
+    private $speed;
+    private $mileage;
+
+    public function __construct($name, $speed, $mileage) {
+        $this->name = $name;
+        $this->speed = $speed;
+        $this->mileage = $mileage;
+    }
+
+    public function fare() {
+        return $this->getSeatingCapacity() * 100;
+    }
+
+    protected function getSeatingCapacity() {
+        return 0;
+    }
+
+    public function displayInfo() {
+        echo "Vehicle: {$this->name}\n";
+        echo "Speed: {$this->speed} km/h\n";
+        echo "Mileage: {$this->mileage} km/l\n";
+    }
+}
+
+class Bus extends Vehicle {
+    protected function getSeatingCapacity() {
+        return 50;
+    }
+
+    public function fare() {
+        $baseFare = parent::fare(); 
+        $maintenanceCharge = $baseFare * 0.1; 
+        return $baseFare + $maintenanceCharge;
+    }
+}
+
+$vehicle = new Vehicle("Generic Vehicle", 100, 10);
+$vehicle->displayInfo();
+echo "Vehicle fare: $" . $vehicle->fare() . "\n";
+
+echo "\n";
+
+$bus = new Bus("School Bus", 120, 10);
+$bus->displayInfo();
+echo "Bus fare: $" . $bus->fare() . "\n";
+
+?>
