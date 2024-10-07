@@ -11,28 +11,10 @@ class Vehicle {
         $this->mileage = $mileage;
     }
 
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getSpeed() {
-        return $this->speed;
-    }
-
-    public function getMileage() {
-        return $this->mileage;
-    }
-
-    public function setName($name) {
-        $this->name = $name;
-    }
-
-    public function setSpeed($speed) {
-        $this->speed = $speed;
-    }
-
-    public function setMileage($mileage) {
-        $this->mileage = $mileage;
+    public function displayInfo() {
+        echo "Vehicle: {$this->name}\n";
+        echo "Speed: {$this->speed} km/h\n";
+        echo "Mileage: {$this->mileage} km/l\n";
     }
 }
 
@@ -42,9 +24,14 @@ class Bus extends Vehicle {
     }
 }
 
-$school_bus = new Bus("School Volvo", 180, 12);
-echo $school_bus->getName() . "\n";
-echo $school_bus->seating_capacity() . "\n";
-echo $school_bus->seating_capacity(45) . "\n";
+$car = new Vehicle("Toyota Corolla", 180, 14.5);
+$car->displayInfo();
+
+echo "\n";
+
+$bus = new Bus("School Bus", 120, 10);
+$bus->displayInfo();
+echo $bus->seating_capacity() . "\n";  
+echo $bus->seating_capacity(70) . "\n";  
 
 ?>
